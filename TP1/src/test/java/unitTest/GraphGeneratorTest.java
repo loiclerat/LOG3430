@@ -56,7 +56,10 @@ public class GraphGeneratorTest {
 		assertEquals("Should be a graph of type complete bipartite.", COMPLETE_BIPARTITE_TYPE_NAME, graphGenerated.getTypeName());
 		assertEquals("Should have " + nbOfVerticesFirst + nbOfVerticesSecond + " vertices created.", nbOfVerticesFirst + nbOfVerticesSecond, graphGenerated.V());
 	}
-	
+
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type biparite. 
+	 */
 	@Test
 	public void bipartite1()
 	{
@@ -67,6 +70,9 @@ public class GraphGeneratorTest {
 		assertEquals("Should have " + nbOfVerticesFirst + nbOfVerticesSecond + " vertices created.", nbOfVerticesFirst + nbOfVerticesSecond, graphGenerated.V());
 	}
 	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type bipartite. 
+	 */
 	@Test
 	public void bipartite2()
 	{
@@ -76,7 +82,10 @@ public class GraphGeneratorTest {
 		assertEquals("Should be a graph of type bipartite.", BIPARTITE_TYPE_NAME, graphGenerated.getTypeName());
 		assertEquals("Should have " + nbOfVerticesFirst + nbOfVerticesSecond + " vertices created.", nbOfVerticesFirst + nbOfVerticesSecond, graphGenerated.V());
 	}
-	
+
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type path. 
+	 */
 	@Test
 	public void path()
 	{
@@ -86,6 +95,9 @@ public class GraphGeneratorTest {
 		assertEquals("Should have " + nbOfVertices + " vertices created.", nbOfVertices, graphGenerated.V());
 	}
 	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type binary tree. 
+	 */
 	@Test
 	public void binaryTree()
 	{
@@ -95,6 +107,9 @@ public class GraphGeneratorTest {
 		assertEquals("Should have " + nbOfVertices + " vertices created.", nbOfVertices, graphGenerated.V());
 	}
 	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type cycle. 
+	 */
 	@Test
 	public void cycle()
 	{
@@ -104,6 +119,9 @@ public class GraphGeneratorTest {
 		assertEquals("Should have " + nbOfVertices + " vertices created.", nbOfVertices, graphGenerated.V());
 	}
 	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type eularian cycle. 
+	 */
 	@Test
 	public void eulerianCycle()
 	{
@@ -113,6 +131,9 @@ public class GraphGeneratorTest {
 		assertEquals("Should have " + nbOfVertices + " vertices created.", nbOfVertices, graphGenerated.V());
 	}
 	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type eularian path. 
+	 */
 	@Test
 	public void eulerianPath()
 	{
@@ -121,7 +142,10 @@ public class GraphGeneratorTest {
 		assertEquals("Should be a graph of type eularian path.", EULARIAN_PATH_TYPE_NAME, graphGenerated.getTypeName());
 		assertEquals("Should have " + nbOfVertices + " vertices created.", nbOfVertices, graphGenerated.V());
 	}
-	
+
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type wheel. 
+	 */
 	@Test
 	public void wheel()
 	{
@@ -131,6 +155,9 @@ public class GraphGeneratorTest {
 		assertEquals("Should have " + nbOfVertices + " vertices created.", nbOfVertices, graphGenerated.V());
 	}
 	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type star. 
+	 */
 	@Test
 	public void star()
 	{
@@ -139,7 +166,10 @@ public class GraphGeneratorTest {
 		assertEquals("Should be a graph of type star", STAR_TYPE_NAME, graphGenerated.getTypeName());
 		assertEquals("Should have " + nbOfVertices + " vertices created.", nbOfVertices, graphGenerated.V());
 	}
-	
+
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type regular. 
+	 */
 	@Test
 	public void regular()
 	{
@@ -149,6 +179,9 @@ public class GraphGeneratorTest {
 		assertEquals("Should have " + nbOfVertices + " vertices created.", nbOfVertices, graphGenerated.V());
 	}
 	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type tree. 
+	 */
 	@Test
 	public void tree()
 	{
