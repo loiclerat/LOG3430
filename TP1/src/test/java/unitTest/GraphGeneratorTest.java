@@ -8,7 +8,9 @@ import edu.princeton.cs.algs4.Graph;
 import edu.princeton.cs.algs4.GraphGenerator;
 
 public class GraphGeneratorTest {
-
+	
+	// Constant String for each graph typename
+	
 	private static final String SIMPLE_TYPE_NAME = "simple";
 	private static final String COMPLETE_TYPE_NAME = "complete";
 	private static final String COMPLETE_BIPARTITE_TYPE_NAME = "completeBipartite";
@@ -23,6 +25,9 @@ public class GraphGeneratorTest {
 	private static final String REGULAR_TYPE_NAME = "regular";
 	private static final String TREE_TYPE_NAME = "tree";
 	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type "simple"
+	 */
 	@Test
 	public void simple1()
 	{
@@ -32,12 +37,18 @@ public class GraphGeneratorTest {
 		assertEquals("Should have " + nbOfVertices + " vertices created.", nbOfVertices, graphGenerated.V());
 	}
 	
+	/**
+	 * Test to check if GraphGenerator throws the right exception when the number of vertices given is -1
+	 */
 	@Test ( expected = IllegalArgumentException.class )
 	public void simple2()
 	{
 		GraphGenerator.simple(-1, 0.7);
 	}
 	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type "complete"
+	 */
 	@Test
 	public void complete()
 	{
@@ -46,7 +57,10 @@ public class GraphGeneratorTest {
 		assertEquals("Should be a graph of type complete.", COMPLETE_TYPE_NAME, graphGenerated.getTypeName());
 		assertEquals("Should have " + nbOfVertices + " vertices created.", nbOfVertices, graphGenerated.V());
 	}
-
+	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type "completeBipartite"
+	 */
 	@Test
 	public void completeBipartie()
 	{
@@ -58,7 +72,7 @@ public class GraphGeneratorTest {
 	}
 
 	/**
-	 * Test to check if the generated graph has the right number of vertices and has the type biparite. 
+	 * Test to check if the generated graph has the right number of vertices and has the type "biparite". 
 	 */
 	@Test
 	public void bipartite1()
@@ -71,7 +85,7 @@ public class GraphGeneratorTest {
 	}
 	
 	/**
-	 * Test to check if the generated graph has the right number of vertices and has the type bipartite. 
+	 * Test to check if the generated graph has the right number of vertices and has the type "bipartite". 
 	 */
 	@Test
 	public void bipartite2()
@@ -84,7 +98,7 @@ public class GraphGeneratorTest {
 	}
 
 	/**
-	 * Test to check if the generated graph has the right number of vertices and has the type path. 
+	 * Test to check if the generated graph has the right number of vertices and has the type "path". 
 	 */
 	@Test
 	public void path()
@@ -96,7 +110,7 @@ public class GraphGeneratorTest {
 	}
 	
 	/**
-	 * Test to check if the generated graph has the right number of vertices and has the type binary tree. 
+	 * Test to check if the generated graph has the right number of vertices and has the type "binary tree". 
 	 */
 	@Test
 	public void binaryTree()
@@ -108,7 +122,7 @@ public class GraphGeneratorTest {
 	}
 	
 	/**
-	 * Test to check if the generated graph has the right number of vertices and has the type cycle. 
+	 * Test to check if the generated graph has the right number of vertices and has the type "cycle". 
 	 */
 	@Test
 	public void cycle()
@@ -120,7 +134,7 @@ public class GraphGeneratorTest {
 	}
 	
 	/**
-	 * Test to check if the generated graph has the right number of vertices and has the type eularian cycle. 
+	 * Test to check if the generated graph has the right number of vertices and has the type "eulerian cycle". 
 	 */
 	@Test
 	public void eulerianCycle()
@@ -132,7 +146,7 @@ public class GraphGeneratorTest {
 	}
 	
 	/**
-	 * Test to check if the generated graph has the right number of vertices and has the type eularian path. 
+	 * Test to check if the generated graph has the right number of vertices and has the type "eulerian path". 
 	 */
 	@Test
 	public void eulerianPath()
@@ -144,7 +158,7 @@ public class GraphGeneratorTest {
 	}
 
 	/**
-	 * Test to check if the generated graph has the right number of vertices and has the type wheel. 
+	 * Test to check if the generated graph has the right number of vertices and has the type "wheel". 
 	 */
 	@Test
 	public void wheel()
@@ -156,7 +170,7 @@ public class GraphGeneratorTest {
 	}
 	
 	/**
-	 * Test to check if the generated graph has the right number of vertices and has the type star. 
+	 * Test to check if the generated graph has the right number of vertices and has the type "star". 
 	 */
 	@Test
 	public void star()
@@ -168,7 +182,7 @@ public class GraphGeneratorTest {
 	}
 
 	/**
-	 * Test to check if the generated graph has the right number of vertices and has the type regular. 
+	 * Test to check if the generated graph has the right number of vertices and has the type "regular". 
 	 */
 	@Test
 	public void regular()
@@ -180,7 +194,7 @@ public class GraphGeneratorTest {
 	}
 	
 	/**
-	 * Test to check if the generated graph has the right number of vertices and has the type tree. 
+	 * Test to check if the generated graph has the right number of vertices and has the type "tree". 
 	 */
 	@Test
 	public void tree()
