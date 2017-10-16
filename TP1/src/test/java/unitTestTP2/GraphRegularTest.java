@@ -19,19 +19,19 @@ private static final String REGULAR_TYPE_NAME = "regular";
 	
 	//=====================================================
 	// Test catégorie-partition Each-Choice (EC)
-	
-	/**
+	/*
+	*//**
 	 * Test with invalid value for nb of vertices and invalid degree -> *Error*
-	 */
+	 *//*
 	@Test ( expected = IllegalArgumentException.class )
 	public void EC1()
 	{
 		GraphGenerator.regular(-2, -2);
 	}
 	
-	/**
+	*//**
 	 * Test with valid value for nb of vertices and valid degree -> *Succes*
-	 */
+	 *//*
 	@Test
 	public void EC2()
 	{
@@ -43,10 +43,10 @@ private static final String REGULAR_TYPE_NAME = "regular";
 		int maxEdges = maxEdges(nbOfVertices, degree);
 		assertTrue("Should have a number of edges between 0 and " + maxEdges + ".", graphGenerated.E() >= 0 && graphGenerated.E() <= maxEdges);
 	}
-	
-	/**
+
+	*//**
 	 * Test with valid value for nb of vertices and valid degree -> *Succes*
-	 */
+	 *//*
 	@Test
 	public void EC3()
 	{
@@ -58,7 +58,7 @@ private static final String REGULAR_TYPE_NAME = "regular";
 		int maxEdges = maxEdges(nbOfVertices, degree);
 		assertTrue("Should have a number of edges between 0 and " + maxEdges + ".", graphGenerated.E() >= 0 && graphGenerated.E() <= maxEdges);
 	}
-	
+	*/
 
 	//=====================================================
 	// Test catégorie-partition All-Combinations (AC)

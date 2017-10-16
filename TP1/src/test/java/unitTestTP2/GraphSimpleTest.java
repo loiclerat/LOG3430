@@ -25,16 +25,16 @@ public class GraphSimpleTest {
 	
 	/**
 	 * Test with invalid value for nb of vertices and probability -> *Error*
-	 */
+	 *//*
 	@Test ( expected = IllegalArgumentException.class )
 	public void EC1()
 	{
 		GraphGenerator.simple(-2, -0.2);
 	}
 	
-	/**
+	*//**
 	 * Test with valid value for nb of vertices and probability -> *Succes*
-	 */
+	 *//*
 	@Test 
 	public void EC2()
 	{
@@ -46,14 +46,14 @@ public class GraphSimpleTest {
 		assertTrue("Should have a number of edges between 0 and " + maxEdges + ".", graphGenerated.E() >= 0 && graphGenerated.E() <= maxEdges);
 	}
 	
-	/**
+	*//**
 	 * Test with valid value for nb of vertices and invalid probability -> *Error*
-	 */
+	 *//*
 	@Test ( expected = IllegalArgumentException.class )
 	public void EC3()
 	{
 		GraphGenerator.simple(5, 2.0);
-	}
+	}*/
 	
 	
 

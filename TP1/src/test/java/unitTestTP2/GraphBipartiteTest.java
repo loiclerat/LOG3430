@@ -22,16 +22,16 @@ public class GraphBipartiteTest {
 	
 	/**
 	 * Test with invalid value for first nb of vertices, invalid second nb of vertices and valid probability -> *Error*
-	 */
+	 *//*
 	@Test ( expected = IllegalArgumentException.class )
 	public void EC1()
 	{
 		GraphGenerator.bipartite(-2, -2, 0.2);
 	}
 	
-	/**
+	*//**
 	 * Test with valid value for first nb of vertices, valid second nb of vertices and valid probability -> *Succes*
-	 */
+	 *//*
 	@Test
 	public void EC2()
 	{
@@ -43,15 +43,15 @@ public class GraphBipartiteTest {
 		int maxEdges = maxEdges(nbOfVerticesFirst, nbOfVerticesSecond);
 		assertTrue("Should have a number of edges between 0 and " + maxEdges + ".", graphGenerated.E() >= 0 && graphGenerated.E() <= maxEdges);
 	}
-	
-	/**
+
+	*//**
 	 * Test with valid value for first nb of vertices, valid second nb of vertices and invalid probability -> *Error*
-	 */
+	 *//*
 	@Test ( expected = IllegalArgumentException.class )
 	public void EC3()
 	{
 		GraphGenerator.bipartite(-2, 10, 2.0);
-	}
+	}*/
 	
 
 	//=====================================================
