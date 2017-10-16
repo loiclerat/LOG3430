@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>GraphSimpleTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">GraphBipartiteTest (2017-10-16 09:20:35)</a> &gt; <a href="../../index.html" class="el_group">TP1</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">unitTestTP2</a> &gt; <span class="el_source">GraphSimpleTest.java</span></div><h1>GraphSimpleTest.java</h1><pre class="source lang-java linenums">package unitTestTP2;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import edu.princeton.cs.algs4.Graph;
+import edu.princeton.cs.algs4.GraphGenerator;
+
+<span class="fc" id="L10">public class GraphSimpleTest {</span>
+	
+	private static final String SIMPLE_TYPE_NAME = &quot;simple&quot;;
+	
+	/**
+	 * Return the maximum number of edges that could be created for a regular graph with a given number of vertices
+	 */
+	private int maxEdges(int nbVertices)
+	{
+<span class="fc" id="L19">		return nbVertices*(nbVertices-1)/2;</span>
+	}
+	
+	
+	//=====================================================
+	// Test catégorie-partition Each-Choice (EC)
+	
+	/**
+	 * Test with invalid value for nb of vertices and probability -&gt; *Error*
+	 *//*
+	@Test ( expected = IllegalArgumentException.class )
+	public void EC1()
+	{
+		GraphGenerator.simple(-2, -0.2);
+	}
+	
+	*//**
+	 * Test with valid value for nb of vertices and probability -&gt; *Succes*
+	 *//*
+	@Test 
+	public void EC2()
+	{
+		final int nbOfVertices = 40;
+		Graph graphGenerated = GraphGenerator.simple(40, 0.3);
+		assertEquals(&quot;Should have &quot; + nbOfVertices + &quot; vertices created.&quot;, nbOfVertices, graphGenerated.V());
+		assertEquals(&quot;Should be a graph of type simple.&quot;, SIMPLE_TYPE_NAME, graphGenerated.getTypeName());
+		int maxEdges = maxEdges(nbOfVertices);
+		assertTrue(&quot;Should have a number of edges between 0 and &quot; + maxEdges + &quot;.&quot;, graphGenerated.E() &gt;= 0 &amp;&amp; graphGenerated.E() &lt;= maxEdges);
+	}
+	
+	*//**
+	 * Test with valid value for nb of vertices and invalid probability -&gt; *Error*
+	 *//*
+	@Test ( expected = IllegalArgumentException.class )
+	public void EC3()
+	{
+		GraphGenerator.simple(5, 2.0);
+	}*/
+	
+	
+
+	//=====================================================
+	// Test catégorie-partition All-Combinations (AC)
+	
+	/**
+	 * Test with invalid value for nb of vertices and invalid probability -&gt; *Error*
+	 */
+	@Test ( expected = IllegalArgumentException.class )
+	public void AC1()
+	{
+<span class="nc" id="L69">		GraphGenerator.simple(-2, -0.5);</span>
+<span class="nc" id="L70">	}</span>
+	
+	/**
+	 * Test with invalid value for nb of vertices and valid probability -&gt; *Error*
+	 */
+	@Test ( expected = IllegalArgumentException.class )
+	public void AC2()
+	{
+<span class="nc" id="L78">		GraphGenerator.simple(-2, 0.5);</span>
+<span class="nc" id="L79">	}</span>
+	
+	/**
+	 * Test with invalid value for nb of vertices and invalid probability -&gt; *Error*
+	 */
+	@Test ( expected = IllegalArgumentException.class )
+	public void AC3()
+	{
+<span class="nc" id="L87">		GraphGenerator.simple(-2, 2.0);</span>
+<span class="nc" id="L88">	}</span>
+	
+	/**
+	 * Test with valid value for nb of vertices and invalid probability -&gt; *Error*
+	 */
+	@Test ( expected = IllegalArgumentException.class )
+	public void AC4()
+	{
+<span class="nc" id="L96">		GraphGenerator.simple(10, -0.5);</span>
+<span class="nc" id="L97">	}</span>
+	
+	/**
+	 * Test with valid value for nb of vertices and valid probability -&gt; *Succes*
+	 */
+	@Test
+	public void AC5()
+	{
+<span class="fc" id="L105">		final int nbOfVertices = 10;</span>
+<span class="fc" id="L106">		Graph graphGenerated = GraphGenerator.simple(nbOfVertices, 0.5);</span>
+<span class="fc" id="L107">		assertEquals(&quot;Should have &quot; + nbOfVertices + &quot; vertices created.&quot;, nbOfVertices, graphGenerated.V());</span>
+<span class="fc" id="L108">		assertEquals(&quot;Should be a graph of type simple.&quot;, SIMPLE_TYPE_NAME, graphGenerated.getTypeName());</span>
+<span class="fc" id="L109">		int maxEdges = maxEdges(nbOfVertices);</span>
+<span class="pc bpc" id="L110" title="2 of 4 branches missed.">		assertTrue(&quot;Should have a number of edges between 0 and &quot; + maxEdges + &quot;.&quot;, graphGenerated.E() &gt;= 0 &amp;&amp; graphGenerated.E() &lt;= maxEdges);</span>
+<span class="fc" id="L111">	}</span>
+	
+	/**
+	 * Test with valid value for nb of vertices and invalid probability -&gt; *Error*
+	 */
+	@Test ( expected = IllegalArgumentException.class )
+	public void AC6()
+	{
+<span class="nc" id="L119">		GraphGenerator.simple(10, 2.0);</span>
+<span class="nc" id="L120">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>GraphBipartiteTest (2017-10-16 09:20:35)</div></body></html>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>GraphGeneratorTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">GraphBipartiteTest (2017-10-16 09:20:35)</a> &gt; <a href="../../index.html" class="el_group">TP1</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">unitTestTP1</a> &gt; <span class="el_source">GraphGeneratorTest.java</span></div><h1>GraphGeneratorTest.java</h1><pre class="source lang-java linenums">package unitTestTP1;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import edu.princeton.cs.algs4.Graph;
+import edu.princeton.cs.algs4.GraphGenerator;
+
+<span class="nc" id="L10">public class GraphGeneratorTest {</span>
+	
+	// Constant String for each graph typename
+	
+	private static final String SIMPLE_TYPE_NAME = &quot;simple&quot;;
+	private static final String COMPLETE_TYPE_NAME = &quot;complete&quot;;
+	private static final String COMPLETE_BIPARTITE_TYPE_NAME = &quot;completeBipartite&quot;;
+	private static final String BIPARTITE_TYPE_NAME = &quot;bipartite&quot;;
+	private static final String PATH_TYPE_NAME = &quot;path&quot;;
+	private static final String BINARY_TREE_TYPE_NAME = &quot;binaryTree&quot;;
+	private static final String CYCLE_TYPE_NAME = &quot;cycle&quot;;
+	private static final String EULARIAN_CYCLE_TYPE_NAME = &quot;eulerianCycle&quot;;
+	private static final String EULARIAN_PATH_TYPE_NAME = &quot;eulerianPath&quot;;
+	private static final String WHEEL_TYPE_NAME = &quot;wheel&quot;;
+	private static final String STAR_TYPE_NAME = &quot;star&quot;;
+	private static final String REGULAR_TYPE_NAME = &quot;regular&quot;;
+	private static final String TREE_TYPE_NAME = &quot;tree&quot;;
+	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type &quot;simple&quot;
+	 */
+	@Test
+	public void simple1()
+	{
+<span class="nc" id="L34">		final int nbOfVertices = 5;</span>
+<span class="nc" id="L35">		Graph graphGenerated = GraphGenerator.simple(nbOfVertices, 2);</span>
+<span class="nc" id="L36">		assertEquals(&quot;Should be a graph of type simple.&quot;, SIMPLE_TYPE_NAME, graphGenerated.getTypeName());</span>
+<span class="nc" id="L37">		assertEquals(&quot;Should have &quot; + nbOfVertices + &quot; vertices created.&quot;, nbOfVertices, graphGenerated.V());</span>
+<span class="nc" id="L38">	}</span>
+	
+	/**
+	 * Test to check if GraphGenerator throws the right exception when the number of vertices given is -1
+	 */
+	@Test ( expected = IllegalArgumentException.class )
+	public void simple2()
+	{
+<span class="nc" id="L46">		GraphGenerator.simple(-1, 0.7);</span>
+<span class="nc" id="L47">	}</span>
+	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type &quot;complete&quot;
+	 */
+	@Test
+	public void complete()
+	{
+<span class="nc" id="L55">		final int nbOfVertices = 6;</span>
+<span class="nc" id="L56">		Graph graphGenerated = GraphGenerator.complete(nbOfVertices);</span>
+<span class="nc" id="L57">		assertEquals(&quot;Should be a graph of type complete.&quot;, COMPLETE_TYPE_NAME, graphGenerated.getTypeName());</span>
+<span class="nc" id="L58">		assertEquals(&quot;Should have &quot; + nbOfVertices + &quot; vertices created.&quot;, nbOfVertices, graphGenerated.V());</span>
+<span class="nc" id="L59">	}</span>
+	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type &quot;completeBipartite&quot;
+	 */
+	@Test
+	public void completeBipartie()
+	{
+<span class="nc" id="L67">		final int nbOfVerticesFirst = 4;</span>
+<span class="nc" id="L68">		final int nbOfVerticesSecond = 3;</span>
+<span class="nc" id="L69">		Graph graphGenerated = GraphGenerator.completeBipartite(nbOfVerticesFirst, nbOfVerticesSecond);</span>
+<span class="nc" id="L70">		assertEquals(&quot;Should be a graph of type complete bipartite.&quot;, COMPLETE_BIPARTITE_TYPE_NAME, graphGenerated.getTypeName());</span>
+<span class="nc" id="L71">		assertEquals(&quot;Should have &quot; + nbOfVerticesFirst + nbOfVerticesSecond + &quot; vertices created.&quot;, nbOfVerticesFirst + nbOfVerticesSecond, graphGenerated.V());</span>
+<span class="nc" id="L72">	}</span>
+
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type &quot;biparite&quot;. 
+	 */
+	@Test
+	public void bipartite1()
+	{
+<span class="nc" id="L80">		final int nbOfVerticesFirst = 1;</span>
+<span class="nc" id="L81">		final int nbOfVerticesSecond = 2;</span>
+<span class="nc" id="L82">		Graph graphGenerated = GraphGenerator.bipartite(1, 2, 0.8);</span>
+<span class="nc" id="L83">		assertEquals(&quot;Should be a graph of type bipartite.&quot;, BIPARTITE_TYPE_NAME, graphGenerated.getTypeName());</span>
+<span class="nc" id="L84">		assertEquals(&quot;Should have &quot; + nbOfVerticesFirst + nbOfVerticesSecond + &quot; vertices created.&quot;, nbOfVerticesFirst + nbOfVerticesSecond, graphGenerated.V());</span>
+<span class="nc" id="L85">	}</span>
+	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type &quot;bipartite&quot;. 
+	 */
+	@Test
+	public void bipartite2()
+	{
+<span class="nc" id="L93">		final int nbOfVerticesFirst = 4;</span>
+<span class="nc" id="L94">		final int nbOfVerticesSecond = 5;</span>
+<span class="nc" id="L95">		Graph graphGenerated = GraphGenerator.bipartite(4, 5, 8);</span>
+<span class="nc" id="L96">		assertEquals(&quot;Should be a graph of type bipartite.&quot;, BIPARTITE_TYPE_NAME, graphGenerated.getTypeName());</span>
+<span class="nc" id="L97">		assertEquals(&quot;Should have &quot; + nbOfVerticesFirst + nbOfVerticesSecond + &quot; vertices created.&quot;, nbOfVerticesFirst + nbOfVerticesSecond, graphGenerated.V());</span>
+<span class="nc" id="L98">	}</span>
+
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type &quot;path&quot;. 
+	 */
+	@Test
+	public void path()
+	{
+<span class="nc" id="L106">		final int nbOfVertices = 8;</span>
+<span class="nc" id="L107">		Graph graphGenerated = GraphGenerator.path(nbOfVertices);</span>
+<span class="nc" id="L108">		assertEquals(&quot;Should be a graph of type path.&quot;, PATH_TYPE_NAME, graphGenerated.getTypeName());</span>
+<span class="nc" id="L109">		assertEquals(&quot;Should have &quot; + nbOfVertices + &quot; vertices created.&quot;, nbOfVertices, graphGenerated.V());</span>
+<span class="nc" id="L110">	}</span>
+	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type &quot;binary tree&quot;. 
+	 */
+	@Test
+	public void binaryTree()
+	{
+<span class="nc" id="L118">		final int nbOfVertices = 12;</span>
+<span class="nc" id="L119">		Graph graphGenerated = GraphGenerator.binaryTree(nbOfVertices);</span>
+<span class="nc" id="L120">		assertEquals(&quot;Should be a graph of type binary tree.&quot;, BINARY_TREE_TYPE_NAME, graphGenerated.getTypeName());</span>
+<span class="nc" id="L121">		assertEquals(&quot;Should have &quot; + nbOfVertices + &quot; vertices created.&quot;, nbOfVertices, graphGenerated.V());</span>
+<span class="nc" id="L122">	}</span>
+	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type &quot;cycle&quot;. 
+	 */
+	@Test
+	public void cycle()
+	{
+<span class="nc" id="L130">		final int nbOfVertices = 8;</span>
+<span class="nc" id="L131">		Graph graphGenerated = GraphGenerator.cycle(nbOfVertices);</span>
+<span class="nc" id="L132">		assertEquals(&quot;Should be a graph of type cycle.&quot;, CYCLE_TYPE_NAME, graphGenerated.getTypeName());</span>
+<span class="nc" id="L133">		assertEquals(&quot;Should have &quot; + nbOfVertices + &quot; vertices created.&quot;, nbOfVertices, graphGenerated.V());</span>
+<span class="nc" id="L134">	}</span>
+	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type &quot;eulerian cycle&quot;. 
+	 */
+	@Test
+	public void eulerianCycle()
+	{
+<span class="nc" id="L142">		final int nbOfVertices = 5;</span>
+<span class="nc" id="L143">		Graph graphGenerated = GraphGenerator.eulerianCycle(nbOfVertices, 5);</span>
+<span class="nc" id="L144">		assertEquals(&quot;Should be a graph of type eularian cycle.&quot;, EULARIAN_CYCLE_TYPE_NAME, graphGenerated.getTypeName());</span>
+<span class="nc" id="L145">		assertEquals(&quot;Should have &quot; + nbOfVertices + &quot; vertices created.&quot;, nbOfVertices, graphGenerated.V());</span>
+<span class="nc" id="L146">	}</span>
+	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type &quot;eulerian path&quot;. 
+	 */
+	@Test
+	public void eulerianPath()
+	{
+<span class="nc" id="L154">		final int nbOfVertices = 3;</span>
+<span class="nc" id="L155">		Graph graphGenerated = GraphGenerator.eulerianPath(nbOfVertices, 3);</span>
+<span class="nc" id="L156">		assertEquals(&quot;Should be a graph of type eularian path.&quot;, EULARIAN_PATH_TYPE_NAME, graphGenerated.getTypeName());</span>
+<span class="nc" id="L157">		assertEquals(&quot;Should have &quot; + nbOfVertices + &quot; vertices created.&quot;, nbOfVertices, graphGenerated.V());</span>
+<span class="nc" id="L158">	}</span>
+
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type &quot;wheel&quot;. 
+	 */
+	@Test
+	public void wheel()
+	{
+<span class="nc" id="L166">		final int nbOfVertices = 4;</span>
+<span class="nc" id="L167">		Graph graphGenerated = GraphGenerator.wheel(nbOfVertices);</span>
+<span class="nc" id="L168">		assertEquals(&quot;Should be a graph of type wheel&quot;, WHEEL_TYPE_NAME, graphGenerated.getTypeName());</span>
+<span class="nc" id="L169">		assertEquals(&quot;Should have &quot; + nbOfVertices + &quot; vertices created.&quot;, nbOfVertices, graphGenerated.V());</span>
+<span class="nc" id="L170">	}</span>
+	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type &quot;star&quot;. 
+	 */
+	@Test
+	public void star()
+	{
+<span class="nc" id="L178">		final int nbOfVertices = 5;</span>
+<span class="nc" id="L179">		Graph graphGenerated = GraphGenerator.star(nbOfVertices);</span>
+<span class="nc" id="L180">		assertEquals(&quot;Should be a graph of type star&quot;, STAR_TYPE_NAME, graphGenerated.getTypeName());</span>
+<span class="nc" id="L181">		assertEquals(&quot;Should have &quot; + nbOfVertices + &quot; vertices created.&quot;, nbOfVertices, graphGenerated.V());</span>
+<span class="nc" id="L182">	}</span>
+
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type &quot;regular&quot;. 
+	 */
+	@Test
+	public void regular()
+	{
+<span class="nc" id="L190">		final int nbOfVertices = 5;</span>
+<span class="nc" id="L191">		Graph graphGenerated = GraphGenerator.regular(nbOfVertices, 6);</span>
+<span class="nc" id="L192">		assertEquals(&quot;Should be a graph of type regular&quot;, REGULAR_TYPE_NAME, graphGenerated.getTypeName());</span>
+<span class="nc" id="L193">		assertEquals(&quot;Should have &quot; + nbOfVertices + &quot; vertices created.&quot;, nbOfVertices, graphGenerated.V());</span>
+<span class="nc" id="L194">	}</span>
+	
+	/**
+	 * Test to check if the generated graph has the right number of vertices and has the type &quot;tree&quot;. 
+	 */
+	@Test
+	public void tree()
+	{
+<span class="nc" id="L202">		final int nbOfVertices = 8;</span>
+<span class="nc" id="L203">		Graph graphGenerated = GraphGenerator.tree(nbOfVertices);</span>
+<span class="nc" id="L204">		assertEquals(&quot;Should be a graph of type tree&quot;, TREE_TYPE_NAME, graphGenerated.getTypeName());</span>
+<span class="nc" id="L205">		assertEquals(&quot;Should have &quot; + nbOfVertices + &quot; vertices created.&quot;, nbOfVertices, graphGenerated.V());</span>
+<span class="nc" id="L206">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>GraphBipartiteTest (2017-10-16 09:20:35)</div></body></html>
