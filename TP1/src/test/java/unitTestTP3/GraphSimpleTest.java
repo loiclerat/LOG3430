@@ -27,7 +27,7 @@ public class GraphSimpleTest {
 	@Test 
 	public void Jeu3()
 	{
-		final int nbOfVertices = 3;
+		final int nbOfVertices = 10;
 		final int nbOfEdges = 30;
 		Graph graphGenerated = GraphGenerator.simple(nbOfVertices, nbOfEdges);
 		assertEquals("Should have " + nbOfVertices + " vertices and " + nbOfEdges + " edges created.", nbOfVertices, graphGenerated.V());
