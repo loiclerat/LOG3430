@@ -26,9 +26,9 @@ public class GraphCompleteBipartiteTest {
 		final int nbOfVerticesFirst = 5;
 		final int nbOfVerticesSecond = 6;
 		Graph graphGenerated = GraphGenerator.completeBipartite(nbOfVerticesFirst, nbOfVerticesSecond);
+		assertEquals("Should be a graph of type completeBipartite.", TYPE_NAME, graphGenerated.getTypeName());
 		assertEquals("Should have " + nbOfVerticesFirst + nbOfVerticesSecond + " vertices created.", nbOfVerticesFirst + nbOfVerticesSecond, graphGenerated.V());
-		assertEquals("Should be a graph of type simple.", TYPE_NAME, graphGenerated.getTypeName());
-		int maxEdges = maxEdges(nbOfVerticesFirst, nbOfVerticesSecond);
-		assertTrue("Should have a number of edges between 0 and " + maxEdges + ".", graphGenerated.E() >= 0 && graphGenerated.E() <= maxEdges);
+		final int nbOfEdges = maxEdges(nbOfVerticesFirst, nbOfVerticesSecond);
+		assertEquals("Should have " + nbOfEdges + " edges created.", nbOfEdges, graphGenerated.E());
 	}
 }

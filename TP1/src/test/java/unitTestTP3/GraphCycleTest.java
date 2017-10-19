@@ -11,23 +11,13 @@ public class GraphCycleTest {
 
 	private static final String TYPE_NAME = "cycle";
 	
-	/**
-	 * Return the maximum number of edges that could be created for a regular graph with a given number of vertices
-	 */
-	private int maxEdges(int nbVertices)
-	{
-		return nbVertices*(nbVertices-1)/2;
-	}
-	
-	
 	@Test 
 	public void Jeu1()
 	{
 		final int nbOfVertices = 10;
 		Graph graphGenerated = GraphGenerator.cycle(nbOfVertices);
+		assertEquals("Should be a graph of type cycle.", TYPE_NAME, graphGenerated.getTypeName());
 		assertEquals("Should have " + nbOfVertices + " vertices created.", nbOfVertices, graphGenerated.V());
-		assertEquals("Should be a graph of type simple.", TYPE_NAME, graphGenerated.getTypeName());
-		int maxEdges = maxEdges(nbOfVertices);
-		assertTrue("Should have a number of edges between 0 and " + maxEdges + ".", graphGenerated.E() >= 0 && graphGenerated.E() <= maxEdges);
+		assertEquals("Should have " + nbOfVertices + " edges created.", nbOfVertices, graphGenerated.E());
 	}
 }

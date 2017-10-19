@@ -30,8 +30,8 @@ public class GraphSimpleTest {
 		final int nbOfVertices = 10;
 		final int nbOfEdges = 30;
 		Graph graphGenerated = GraphGenerator.simple(nbOfVertices, nbOfEdges);
-		assertEquals("Should have " + nbOfVertices + " vertices and " + nbOfEdges + " edges created.", nbOfVertices, graphGenerated.V());
-		assertEquals("Should have " + nbOfEdges + " edges created.", nbOfEdges, graphGenerated.E());
 		assertEquals("Should be a graph of type simple.", TYPE_NAME, graphGenerated.getTypeName());
+		assertEquals("Should have " + nbOfVertices + " vertices created.", nbOfVertices, graphGenerated.V());
+		assertEquals("Should have " + nbOfEdges + " edges created.", nbOfEdges, graphGenerated.E());
 	}
 }

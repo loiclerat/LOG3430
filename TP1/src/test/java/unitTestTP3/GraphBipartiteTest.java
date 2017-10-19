@@ -31,8 +31,8 @@ public class GraphBipartiteTest {
 		final int nbOfVerticesSecond = 10;
 		final int nbOfEdges = 30;
 		Graph graphGenerated = GraphGenerator.bipartite(nbOfVerticesFirst, nbOfVerticesSecond, nbOfEdges);
+		assertEquals("Should be a graph of type bipartite.", TYPE_NAME, graphGenerated.getTypeName());
 		assertEquals("Should have " + nbOfVerticesFirst + nbOfVerticesSecond + " vertices created.", nbOfVerticesFirst + nbOfVerticesSecond, graphGenerated.V());
 		assertEquals("Should have " + nbOfEdges + " edges created.", nbOfEdges, graphGenerated.E());
-		assertEquals("Should be a graph of type simple.", TYPE_NAME, graphGenerated.getTypeName());
 	}
 }

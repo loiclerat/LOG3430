@@ -11,15 +11,6 @@ public class GraphStarTest {
 
 	private static final String TYPE_NAME = "star";
 	
-	/**
-	 * Return the maximum number of edges that could be created for a regular graph with a given number of vertices
-	 */
-	private int maxEdges(int nbVertices)
-	{
-		return nbVertices*(nbVertices-1)/2;
-	}
-	
-	
 	@Test ( expected = IllegalArgumentException.class )
 	public void Jeu1()
 	{
@@ -31,9 +22,8 @@ public class GraphStarTest {
 	{
 		final int nbOfVertices = 10;
 		Graph graphGenerated = GraphGenerator.star(nbOfVertices);
+		assertEquals("Should be a graph of type star.", TYPE_NAME, graphGenerated.getTypeName());
 		assertEquals("Should have " + nbOfVertices + " vertices created.", nbOfVertices, graphGenerated.V());
-		assertEquals("Should be a graph of type simple.", TYPE_NAME, graphGenerated.getTypeName());
-		int maxEdges = maxEdges(nbOfVertices);
-		assertTrue("Should have a number of edges between 0 and " + maxEdges + ".", graphGenerated.E() >= 0 && graphGenerated.E() <= maxEdges);
+		assertEquals("Should have " + (nbOfVertices - 1) + " edges created.", nbOfVertices - 1, graphGenerated.E());
 	}	
 }

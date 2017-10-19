@@ -12,11 +12,11 @@ public class GraphWheelTest {
 	private static final String TYPE_NAME = "wheel";
 	
 	/**
-	 * Return the maximum number of edges that could be created for a regular graph with a given number of vertices
+	 * Return the number of edges that are created for a wheel graph with a given number of vertices.
 	 */
 	private int maxEdges(int nbVertices)
 	{
-		return nbVertices*(nbVertices-1)/2;
+		return 2*(nbVertices-1);
 	}
 	
 	
@@ -31,9 +31,9 @@ public class GraphWheelTest {
 	{
 		final int nbOfVertices = 10;
 		Graph graphGenerated = GraphGenerator.wheel(nbOfVertices);
+		assertEquals("Should be a graph of type wheel.", TYPE_NAME, graphGenerated.getTypeName());
 		assertEquals("Should have " + nbOfVertices + " vertices created.", nbOfVertices, graphGenerated.V());
-		assertEquals("Should be a graph of type simple.", TYPE_NAME, graphGenerated.getTypeName());
 		int maxEdges = maxEdges(nbOfVertices);
-		assertTrue("Should have a number of edges between 0 and " + maxEdges + ".", graphGenerated.E() >= 0 && graphGenerated.E() <= maxEdges);
+		assertEquals("Should have " + maxEdges + " edges created.", maxEdges, graphGenerated.E());
 	}
 }
