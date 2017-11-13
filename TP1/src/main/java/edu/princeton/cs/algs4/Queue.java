@@ -131,6 +131,17 @@ public class Queue<Item> implements Iterable<Item> {
         }
         return s.toString();
     } 
+    
+    /**
+     * Returns the first item added to this queue.
+     *
+     * @return the first item added to this queue
+     * @throws NoSuchElementException if this queue is empty
+     */
+    public Item getLast(){
+    	if (isEmpty()) throw new NoSuchElementException("Queue underflow");
+        return last.item;
+    }
 
     /**
      * Returns an iterator that iterates over the items in this queue in FIFO order.

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>QueueTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">QueueTest (1) (2017-11-13 09:42:13)</a> &gt; <a href="../../index.html" class="el_group">TP1</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">unitTestTP5</a> &gt; <span class="el_source">QueueTest.java</span></div><h1>QueueTest.java</h1><pre class="source lang-java linenums">package unitTestTP5;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.util.NoSuchElementException;
+
+import org.junit.Test;
+
+import edu.princeton.cs.algs4.Queue;
+
+<span class="fc" id="L14">public class QueueTest {</span>
+
+	/**
+	 * Tranche (first) 1 : Queue(), Constructeur -&gt; peek(), Rapporteur -&gt; enqueue(), Transformateur -&gt; peek(), Rapporteur
+	 * 						-&gt; dequeue(), Transformateur -&gt; peek(), Rapporteur -&gt; isEmpty(), Autres -&gt; iterator(), Autres
+	 */
+	@Test
+	public void Test1(){
+<span class="fc" id="L22">		Queue&lt;Object&gt; queue = new Queue&lt;Object&gt;();</span>
+		
+		// peek()
+		try{
+<span class="nc" id="L26">			queue.peek();</span>
+<span class="nc" id="L27">			fail(&quot;Should have thrown a NoSuchElementException&quot;);</span>
+<span class="pc" id="L28">		}catch(NoSuchElementException e){}</span>
+<span class="nc" id="L29">		catch(Exception e){</span>
+<span class="nc" id="L30">			fail(&quot;Wrong exception : &quot; + e.getMessage());</span>
+		}
+		
+		// enqueue()
+<span class="fc" id="L34">		Object obj1 = new Object();</span>
+<span class="fc" id="L35">		queue.enqueue(obj1);</span>
+		
+		// peek()
+<span class="fc" id="L38">		assertEquals(&quot;Should return the object : &quot; + obj1 , obj1, queue.peek());</span>
+		
+		// dequeue()
+<span class="fc" id="L41">		assertEquals(&quot;Should return the object : &quot; + obj1 , obj1, queue.dequeue());</span>
+		
+		// peek()
+		try{
+<span class="nc" id="L45">			queue.peek();</span>
+<span class="nc" id="L46">			fail(&quot;Should have thrown a NoSuchElementException&quot;);</span>
+<span class="pc" id="L47">		}catch(NoSuchElementException e){}</span>
+<span class="nc" id="L48">		catch(Exception e){</span>
+<span class="nc" id="L49">			fail(&quot;Wrong exception : &quot; + e.getMessage());</span>
+		}
+		
+		// isEmpty()
+<span class="fc" id="L53">		assertTrue(&quot;Should be empty&quot;, queue.isEmpty());</span>
+		
+		// iterator()
+<span class="fc" id="L56">		assertFalse(&quot;Should return an empty iterator&quot;, queue.iterator().hasNext());</span>
+<span class="fc" id="L57">	}</span>
+	
+	/**
+	 * Tranche (first) 2 : Queue(), Constructeur -&gt; peek(), Rapporteur -&gt; dequeue(), Transformateur -&gt; peek(), Rapporteur -&gt; enqueue(), Transformateur -&gt; peek()
+	 */
+	@Test
+	public void Test2(){
+<span class="fc" id="L64">		Queue&lt;Object&gt; queue = new Queue&lt;Object&gt;();</span>
+		
+		// peek()
+		try{
+<span class="nc" id="L68">			queue.peek();</span>
+<span class="nc" id="L69">			fail(&quot;Should have thrown a NoSuchElementException&quot;);</span>
+<span class="pc" id="L70">		}catch(NoSuchElementException e){}</span>
+<span class="nc" id="L71">		catch(Exception e){</span>
+<span class="nc" id="L72">			fail(&quot;Wrong exception : &quot; + e.getMessage());</span>
+		}
+		
+		// dequeue()
+		try{
+<span class="nc" id="L77">			queue.dequeue();</span>
+<span class="nc" id="L78">			fail(&quot;Should have thrown a NoSuchElementException&quot;);</span>
+<span class="pc" id="L79">		}catch(NoSuchElementException e){}</span>
+<span class="nc" id="L80">		catch(Exception e){</span>
+<span class="nc" id="L81">			fail(&quot;Wrong exception : &quot; + e.getMessage());</span>
+		}
+		
+		// peek()
+		try{
+<span class="nc" id="L86">			queue.peek();</span>
+<span class="nc" id="L87">			fail(&quot;Should have thrown a NoSuchElementException&quot;);</span>
+<span class="pc" id="L88">		}catch(NoSuchElementException e){}</span>
+<span class="nc" id="L89">		catch(Exception e){</span>
+<span class="nc" id="L90">			fail(&quot;Wrong exception : &quot; + e.getMessage());</span>
+		}
+		
+		// enqueue()
+<span class="fc" id="L94">		Object obj1 = new Object();</span>
+<span class="fc" id="L95">		queue.enqueue(obj1);</span>
+		
+		// peek()
+<span class="fc" id="L98">		assertEquals(&quot;Should return the object : &quot; + obj1 , obj1, queue.peek());</span>
+<span class="fc" id="L99">	}</span>
+	
+	/**
+	 * Tranche (last) 1 : Queue(), Constructeur -&gt; getLast(), Rapporteur -&gt; enqueue(), Transformateur -&gt; getLast(), Rapporteur -&gt; dequeue(), Transformateur -&gt; getLast(), Rapporteur
+	 */
+	@Test
+	public void Test3(){
+<span class="fc" id="L106">		Queue&lt;Object&gt; queue = new Queue&lt;Object&gt;();</span>
+		
+		// getLast()
+		try{
+<span class="nc" id="L110">			queue.getLast();</span>
+<span class="nc" id="L111">			fail(&quot;Should have thrown a NoSuchElementException&quot;);</span>
+<span class="pc" id="L112">		}catch(NoSuchElementException e){}</span>
+<span class="nc" id="L113">		catch(Exception e){</span>
+<span class="nc" id="L114">			fail(&quot;Wrong exception : &quot; + e.getMessage());</span>
+		}
+		
+		// enqueue()
+<span class="fc" id="L118">		Object obj1 = new Object();</span>
+<span class="fc" id="L119">		queue.enqueue(obj1);</span>
+		
+		// getLast()
+<span class="fc" id="L122">		assertEquals(&quot;Should return the object : &quot; + obj1 , obj1, queue.getLast());</span>
+		
+		// dequeue()
+<span class="fc" id="L125">		assertEquals(&quot;Should return the object : &quot; + obj1 , obj1, queue.dequeue());</span>
+		
+		// getLast()
+		try{
+<span class="nc" id="L129">			queue.getLast();</span>
+<span class="nc" id="L130">			fail(&quot;Should have thrown a NoSuchElementException&quot;);</span>
+<span class="pc" id="L131">		}catch(NoSuchElementException e){}</span>
+<span class="nc" id="L132">		catch(Exception e){</span>
+<span class="nc" id="L133">			fail(&quot;Wrong exception : &quot; + e.getMessage());</span>
+		}
+<span class="fc" id="L135">	}</span>
+	
+	/**
+	 * Tranche (last) 2 : Queue(), Constructeur -&gt; getLast(), Rapporteur -&gt; dequeue(), Transformateur -&gt; getLast(), Rapporteur -&gt; enqueue(), Transformateur -&gt; getLast(), Rapporteur
+	 */
+	@Test
+	public void Test4(){
+<span class="fc" id="L142">		Queue&lt;Object&gt; queue = new Queue&lt;Object&gt;();</span>
+		
+		// getLast()
+		try{
+<span class="nc" id="L146">			queue.getLast();</span>
+<span class="nc" id="L147">			fail(&quot;Should have thrown a NoSuchElementException&quot;);</span>
+<span class="pc" id="L148">		}catch(NoSuchElementException e){}</span>
+<span class="nc" id="L149">		catch(Exception e){</span>
+<span class="nc" id="L150">			fail(&quot;Wrong exception : &quot; + e.getMessage());</span>
+		}
+		
+		// dequeue()
+		try{
+<span class="nc" id="L155">			queue.dequeue();</span>
+<span class="nc" id="L156">			fail(&quot;Should have thrown a NoSuchElementException&quot;);</span>
+<span class="pc" id="L157">		}catch(NoSuchElementException e){}</span>
+<span class="nc" id="L158">		catch(Exception e){</span>
+<span class="nc" id="L159">			fail(&quot;Wrong exception : &quot; + e.getMessage());</span>
+		}
+		
+		// getLast()
+		try{
+<span class="nc" id="L164">			queue.getLast();</span>
+<span class="nc" id="L165">			fail(&quot;Should have thrown a NoSuchElementException&quot;);</span>
+<span class="pc" id="L166">		}catch(NoSuchElementException e){}</span>
+<span class="nc" id="L167">		catch(Exception e){</span>
+<span class="nc" id="L168">			fail(&quot;Wrong exception : &quot; + e.getMessage());</span>
+		}
+		
+		// enqueue()
+<span class="fc" id="L172">		Object obj1 = new Object();</span>
+<span class="fc" id="L173">		queue.enqueue(obj1);</span>
+		
+		// peek()
+<span class="fc" id="L176">		assertEquals(&quot;Should return the object : &quot;, obj1, queue.getLast());</span>
+<span class="fc" id="L177">	}</span>
+	
+	/**
+	 * Tranche (n) 1 : Queue(), Constructeur -&gt; size(), Rapporteur -&gt; enqueue(), Transformateur -&gt; size(), Rapporteur -&gt; dequeue(), Transformateur -&gt; size(), Rapporteur
+	 */
+	@Test
+	public void Test5(){
+<span class="fc" id="L184">		Queue&lt;Object&gt; queue = new Queue&lt;Object&gt;();</span>
+		
+		// size()
+<span class="fc" id="L187">		assertEquals(&quot;Should have a size = 0 &quot;, 0, queue.size());</span>
+		
+		// enqueue()
+<span class="fc" id="L190">		Object obj1 = new Object();</span>
+<span class="fc" id="L191">		queue.enqueue(obj1);</span>
+		
+		// size()
+<span class="fc" id="L194">		assertEquals(&quot;Should have a size = 1 &quot;, 1, queue.size());</span>
+		
+		// dequeue()
+<span class="fc" id="L197">		assertEquals(&quot;Should return the object : &quot; + obj1 , obj1, queue.dequeue());</span>
+		
+		// size()
+<span class="fc" id="L200">		assertEquals(&quot;Should have a size = 0 &quot;, 0, queue.size());</span>
+<span class="fc" id="L201">	}</span>
+	
+	/**
+	 * Tranche (n) 2 : Queue(), Constructeur -&gt; size(), Rapporteur -&gt; dequeue(), Transformateur -&gt; size(), Rapporteur -&gt; enqueue(), Transformateur -&gt; size(), Rapporteur
+	 */
+	@Test
+	public void Test6(){
+<span class="fc" id="L208">		Queue&lt;Object&gt; queue = new Queue&lt;Object&gt;();</span>
+		
+		// size()
+<span class="fc" id="L211">		assertEquals(&quot;Should have a size = 0 &quot;, 0, queue.size());</span>
+		
+		// dequeue()
+		try{
+<span class="nc" id="L215">			queue.dequeue();</span>
+<span class="nc" id="L216">			fail(&quot;Should have thrown a NoSuchElementException&quot;);</span>
+<span class="pc" id="L217">		}catch(NoSuchElementException e){}</span>
+<span class="nc" id="L218">		catch(Exception e){</span>
+<span class="nc" id="L219">			fail(&quot;Wrong exception : &quot; + e.getMessage());</span>
+		}
+		
+		// size()
+<span class="fc" id="L223">		assertEquals(&quot;Should have a size = 0 &quot;, 0, queue.size());</span>
+		
+		// enqueue()
+<span class="fc" id="L226">		queue.enqueue(new Object());</span>
+		
+		// size()
+<span class="fc" id="L229">		assertEquals(&quot;Should have a size = 1 &quot;, 1, queue.size());</span>
+<span class="fc" id="L230">	}</span>
+	
+	
+	// Tests boîte blanche supplémentaires pour couvrir les arêtes manquantes
+	
+	/**
+	 *  Arrête non testée lors de l'ajout d'un n-ième élément
+	 */
+	@Test
+	public void Test7(){
+<span class="fc" id="L240">		Queue&lt;Object&gt; queue = new Queue&lt;Object&gt;();</span>
+
+<span class="fc" id="L242">		queue.enqueue(new Object());</span>
+<span class="fc" id="L243">		queue.enqueue(new Object());</span>
+<span class="fc" id="L244">		assertEquals(&quot;Should have a size = 2.&quot;, 2, queue.size());</span>
+<span class="fc" id="L245">	}</span>
+	
+	/**
+	 *  Arrête non testée lors de l'ajout d'un dequeue() avec n&gt;1 élément
+	 */
+	@Test
+	public void Test8(){
+<span class="fc" id="L252">		Queue&lt;Object&gt; queue = new Queue&lt;Object&gt;();</span>
+		
+<span class="fc" id="L254">		Object object = new Object();</span>
+<span class="fc" id="L255">		queue.enqueue(object);</span>
+<span class="fc" id="L256">		queue.enqueue(new Object());</span>
+<span class="fc" id="L257">		Object objectReturned = queue.dequeue();</span>
+<span class="fc" id="L258">		assertEquals(&quot;Should have a size = 1. &quot;,  1, queue.size());</span>
+<span class="fc" id="L259">		assertEquals(&quot;Should return the object &quot; + object, object, objectReturned);</span>
+<span class="fc" id="L260">	}	</span>
+	
+	/**
+	 *  Méthode toString() non testée
+	 */
+	@Test
+	public void Test9(){
+<span class="fc" id="L267">		Queue&lt;Object&gt; queue = new Queue&lt;Object&gt;();</span>
+<span class="fc" id="L268">		Object object = new Object();</span>
+<span class="fc" id="L269">		queue.enqueue(object);</span>
+<span class="fc" id="L270">		assertEquals(&quot;Should display : &quot; + object.toString() + &quot; &quot;, object.toString() + &quot; &quot;, queue.toString());</span>
+<span class="fc" id="L271">	}	</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>QueueTest (1) (2017-11-13 09:42:13)</div></body></html>

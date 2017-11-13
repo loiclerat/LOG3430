@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>GraphCycleTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">QueueTest (1) (2017-11-13 09:42:13)</a> &gt; <a href="../../index.html" class="el_group">TP1</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">unitTestTP3</a> &gt; <span class="el_source">GraphCycleTest.java</span></div><h1>GraphCycleTest.java</h1><pre class="source lang-java linenums">package unitTestTP3;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import edu.princeton.cs.algs4.Graph;
+import edu.princeton.cs.algs4.GraphGenerator;
+
+<span class="nc" id="L10">public class GraphCycleTest {</span>
+
+	private static final String TYPE_NAME = &quot;cycle&quot;;
+	
+	@Test 
+	public void Jeu1()
+	{
+<span class="nc" id="L17">		final int nbOfVertices = 10;</span>
+<span class="nc" id="L18">		Graph graphGenerated = GraphGenerator.cycle(nbOfVertices);</span>
+<span class="nc" id="L19">		assertEquals(&quot;Should be a graph of type cycle.&quot;, TYPE_NAME, graphGenerated.getTypeName());</span>
+<span class="nc" id="L20">		assertEquals(&quot;Should have &quot; + nbOfVertices + &quot; vertices created.&quot;, nbOfVertices, graphGenerated.V());</span>
+<span class="nc" id="L21">		assertEquals(&quot;Should have &quot; + nbOfVertices + &quot; edges created.&quot;, nbOfVertices, graphGenerated.E());</span>
+<span class="nc" id="L22">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>QueueTest (1) (2017-11-13 09:42:13)</div></body></html>
