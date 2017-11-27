@@ -308,7 +308,7 @@ public class IntegrationTest {
 		final int nbVertices = 5;
 		Graph graph = new Graph(nbVertices);
 		graph.addEdge(1, 2);
-		assertEquals("Should have a 1 edge .", 1, graph.E());
+		assertEquals("Should have 1 edge .", 1, graph.E());
 	}
 	
 	/**
